@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! id $FTP_USER > /dev/null ];then
+if [ $(cat /etc/passwd | grep "$FTP_USER:" | wc -l) -eq 0 ];then
 	if [ ! -d "/home/$FTP_USER" ]; then
 		useradd -ms /bin/false $FTP_USER
 	else

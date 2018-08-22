@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update
-apt install openssh-sftp-server tor
+apt install -y openssh-sftp-server tor
 apt clean
 mkdir /var/run/sshd
 cat $ASSETS_DIR/sshd_config > /etc/ssh/sshd_config

@@ -2,10 +2,10 @@
 
 if [ $(cat /etc/passwd | grep "$FTP_USER:" | wc -l) -eq 0 ];then
 	if [ ! -d "/home/$FTP_USER" ]; then
-		useradd -ms /bin/false $FTP_USER
+		useradd -ms /bin/bash $FTP_USER
 		adduser $FTP_USER sftponly
 	else
-		useradd -Ms /bin/false $FTP_USER
+		useradd -Ms /bin/bash $FTP_USER
 		adduser $FTP_USER sftponly
 	fi
 fi

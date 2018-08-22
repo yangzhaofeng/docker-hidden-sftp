@@ -1,5 +1,7 @@
 # docker-hidden-sftp
 
+<b>Don't be evil! This project is only developed for transferring files anonymously!</b>
+
 ```docker pull yangzhaofengsteven/hidden-sftp```
 
 ```

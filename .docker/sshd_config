@@ -122,3 +122,9 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #       PermitTTY no
 #       ForceCommand cvs server
 
+Match group sftponly
+#	ChrootDirectory /home/%u
+	X11Forwarding no
+	AllowTcpForwarding no
+	ForceCommand /usr/lib/openssh/sftp-server
+

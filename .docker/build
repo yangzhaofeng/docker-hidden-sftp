@@ -8,3 +8,5 @@ cat $ASSETS_DIR/sshd_config > /etc/ssh/sshd_config
 > /etc/motd
 rm /etc/update-motd.d/*
 
+groupadd sftponly
+

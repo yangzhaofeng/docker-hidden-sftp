@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ ! id $FTP_USER > /dev/null ];then
+	if [ ! -d "/home/$FTP_USER" ]; then
+		useradd -ms /bin/false $FTP_USER
+	else
+		useradd -Ms /bin/false $FTP_USER
+	fi
+fi
+
+if [ ! -d "/home/$FTP_USER/.ssh" ]; then
+	su $FTP_USER -c "mkdir /home/$FTP_USER/.ssh"
+fi
+
+if [ ! -f "/home/$FTP_USER/.ssh/authorized_keys" ]; then
+	su $FTP_USER -c "touch /home/$FTP_USER/.ssh/authorized_keys"
+fi
+

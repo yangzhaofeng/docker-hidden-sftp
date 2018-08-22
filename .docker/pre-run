@@ -18,4 +18,7 @@ if [ ! -f "/home/$FTP_USER/.ssh/authorized_keys" ]; then
 	su $FTP_USER -c "touch /home/$FTP_USER/.ssh/authorized_keys"
 fi
 
-
+if [[ $HAVE_INITIALIZED == false ]]; then
+	/bin/rm -v /etc/ssh/ssh_host_*
+	dpkg-reconfigure openssh-server
+fi

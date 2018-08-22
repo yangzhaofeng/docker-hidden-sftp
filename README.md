@@ -14,7 +14,7 @@ docker run -itd \
 
 You may need to manually modify the permission of ```/srv/docker/hidden-sftp/service```
 
-Original password of ftp user is empty. Using pubkey auth method is recommended. edit ```/srv/docker/hidden-sftp/home/$FTP_USER/.ssh/authorized_keys```
+Original password of ftp user is empty. Using pubkey auth method is recommended. Please edit ```/srv/docker/hidden-sftp/home/$FTP_USER/.ssh/authorized_keys```
 
 Local Usage:
 ```sftp -o ProxyCommand='nc -X 5 -x 127.0.0.1:9150 %h %p' <user name>@<geneted server name>.onion```

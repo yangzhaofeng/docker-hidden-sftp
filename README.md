@@ -14,7 +14,7 @@ docker run -itd \
 	yangzhaofengsteven/hidden-sftp
 ```
 
-You may need to manually modify the permission of ```/srv/docker/hidden-sftp/service```
+You may need to manually modify the permission of ```/srv/docker/hidden-sftp/service``` to ```700```
 
 Original password of ftp user is empty. Using pubkey auth method is recommended. Please edit ```/srv/docker/hidden-sftp/home/$FTP_USER/.ssh/authorized_keys```
 

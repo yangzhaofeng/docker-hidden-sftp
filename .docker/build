@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt update
+apt update && apt upgrade
 apt install -y openssh-sftp-server tor
 apt clean
 mkdir /var/run/sshd

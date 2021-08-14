@@ -1,4 +1,4 @@
-#       $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
+#	$OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
@@ -9,6 +9,8 @@
 # OpenSSH is to specify options with their default value where
 # possible, but leave them commented.  Uncommented options override the
 # default value.
+
+Include /etc/ssh/sshd_config.d/*.conf
 
 #Port 22
 #AddressFamily any
@@ -37,7 +39,7 @@ ListenAddress 127.0.0.1
 #PubkeyAuthentication yes
 
 # Expect .ssh/authorized_keys2 to be disregarded by default in future.
-#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
+#AuthorizedKeysFile	.ssh/authorized_keys .ssh/authorized_keys2
 
 #AuthorizedPrincipalsFile none
 
@@ -93,8 +95,6 @@ X11Forwarding no
 PrintMotd no
 #PrintLastLog yes
 #TCPKeepAlive yes
-#UseLogin no
-#UsePrivilegeSeparation sandbox
 #PermitUserEnvironment no
 #Compression delayed
 #ClientAliveInterval 0
@@ -113,16 +113,15 @@ PrintMotd no
 AcceptEnv LANG LC_*
 
 # override default of no subsystems
-Subsystem       sftp    internal-sftp
+Subsystem	sftp	internal-sftp
 ForceCommand	internal-sftp
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
-#       X11Forwarding no
-#       AllowTcpForwarding no
-#       PermitTTY no
-#       ForceCommand cvs server
+#	X11Forwarding no
+#	AllowTcpForwarding no
+#	PermitTTY no
+#	ForceCommand cvs server
 
 Match group sftponly
 	ChrootDirectory %h
-
